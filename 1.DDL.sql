@@ -49,7 +49,7 @@ alter table author add column age int;
 alter table author drop column age;
 -- 테이블 컬럼명 변경
 alter table post change column content contents varchar(255);
--- 테이블 컬럼 타입과 제약조건 변경 -> 덮어쓰기 됨에 중의 : 중요
+-- 테이블 컬럼 타입과 제약조건 변경 -> 덮어쓰기 됨에 주의 : 중요
 alter table author modify column email varchar(100) not null;
 
 -- 실습 : author 테이블에 address 컬럼추가. varchar(255)
