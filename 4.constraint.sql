@@ -17,10 +17,19 @@ alter table post add constraint foreign_key_name foreign key(author_id) referenc
 -- delete, update 관련 제약조건 테스트 (거의 손댈 일 없음)
 -- on delete cascade 테스트
 -- 제약조건 삭제
-select * from information_schema.key_column_usage where table_name = 'post';
+alter table post drop foreign key foreign_key_name;
 
 -- 제약조건 추가
 -- on delete cascade
 alter table post add constraint foreign_key_name foreign key(author_id) references author(id) on delete cascade;
 -- on delete set null
 alter table post add constraint foreign_key_name foreign key(author_id) references author(id) on delete set null on update set null;
+
+-- default 옵션
+alter table author modify column name varchar(255) default 'Annonymous';
+-- auto_increment (pk에 거의 설정함)
+alter table author modify column id bigint auto_increment;
+alter table post modify column id bigint auto_increment;
+
+-- uuid(id에 난수 생성)
+alter table post add column user_id char(36) default (UUID());
