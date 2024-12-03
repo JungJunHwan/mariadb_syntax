@@ -144,7 +144,7 @@ hset author:info:1 name "hong" email "homg@naver.com" age 30
 # 특정값 조회
 hget author:info:1 name
 # 모든 객체값 조회
-hgeall author:info:1
+hgetall author:info:1
 
 # 특정 요소값 수정
 hset author:info:1 name kim
